@@ -10,6 +10,11 @@ const GlobalStyles = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
   }
+
+  /* * {
+   border: 1px solid red;
+  } */
+
   html {
     --red: #ff0000;
     --black: #393939;
@@ -21,6 +26,8 @@ const GlobalStyles = createGlobalStyle`
     --maxWidth: 1000px;
     --bs: 0 12px 24px 0 rgba(0,0,0,0.9);
     box-sizing: border-box;
+    // 16px * 62.5% = 10px
+    font-size: 62.5%;
   }
   // when padding / border added to ele -> takes away from size
   *, *::before, *::after {
