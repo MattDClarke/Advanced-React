@@ -43,7 +43,7 @@ function createClient({ headers, initialState }) {
       typePolicies: {
         Query: {
           fields: {
-            // TODO: We will add this together!
+            // Manually deal with invalidation
             allProducts: paginationField(),
           },
         },
