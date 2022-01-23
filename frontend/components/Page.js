@@ -12,11 +12,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   /* * {
-   border: 1px solid red;
+   border: 1px solid #ff0000;
   } */
 
   html {
     --red: #ff0000;
+    --red-light: #fc5151;
     --black: #393939;
     --grey: #3a3a3a;
     --gray: var(--grey);

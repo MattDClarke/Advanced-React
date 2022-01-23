@@ -7,7 +7,7 @@ import { CURRENT_USER_QUERY } from './User';
 
 const REQUEST_RESET_MUTATION = gql`
   mutation REQUEST_RESET_MUTATION($email: String!) {
-    # part of Keystone
+    # part of Keystone - how to tell Keystone that u want a pw reset link
     sendUserPasswordResetLink(email: $email) {
       code
       message
