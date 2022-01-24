@@ -5,6 +5,7 @@ import { useCart } from '../lib/CartState';
 
 const ADD_TO_CART_MUTATION = gql`
   mutation ADD_TO_CART_MUTATION($id: ID!) {
+    # custom Keystone resolver
     addToCart(productId: $id) {
       id
     }
