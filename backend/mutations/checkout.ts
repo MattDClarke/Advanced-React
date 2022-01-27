@@ -49,8 +49,8 @@ async function checkout(
     `,
   });
   // wont truncate object
-  console.dir(user, { depth: null });
-  // 3. calc total price for their order
+  // console.dir(user, { depth: null });
+  // 3. calc total price for their order - order info from backend - each time user adds item to cart - GraphQL mutation - store added cart item on backend
   // filter out cart items where product = null
   const cartItems = user.cart.filter((cartItem) => cartItem.product);
   const amount = cartItems.reduce(function (
@@ -61,7 +61,7 @@ async function checkout(
   },
   0);
 
-  console.log(amount);
+  // console.log(amount);
   // 4. create the charge with the Stripe library
   const charge = await stripeConfig.paymentIntents
     .create({
@@ -72,10 +72,10 @@ async function checkout(
       payment_method: token,
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       throw new Error(err.message);
     });
-  console.log(charge);
+  // console.log(charge);
   // 5. Convert the cartItems to OrderItems - can't leave as regular product (snapshot of product at time of purchase)
   const orderItems = cartItems.map((cartItem) => {
     const orderItem = {

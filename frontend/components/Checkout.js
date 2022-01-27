@@ -65,7 +65,7 @@ function CheckoutForm() {
       type: 'card',
       card: elements.getElement(CardElement),
     });
-    console.log(paymentMethod);
+    // console.log(paymentMethod);
     // 4. handle errors from Stripe - e.g. not enough cash in account
     if (error) {
       setError(error);
@@ -78,14 +78,14 @@ function CheckoutForm() {
         token: paymentMethod.id,
       },
     });
-    console.log('Finished  with the order');
-    console.log(order);
+    // console.log('Finished with the order');
+    // console.log(order);
     // 6. Change the page to view the order
     router.push({
       // pathname: '/order',
       // query: { id: order.data.checkout.id },
-      pathname: '/order/[id]',
-      id: order.data.checkout.id,
+      pathname: `/order/${order.data.checkout.id}`,
+      // id: order.data.checkout.id,
     });
     // 7. Close the cart
     closeCart();
