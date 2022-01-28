@@ -10,10 +10,12 @@ import { Product } from './schemas/Product';
 import { CartItem } from './schemas/CartItem';
 import { Order } from './schemas/Order';
 import { OrderItem } from './schemas/OrderItem';
+import { Role } from './schemas/Role';
 import { ProductImage } from './schemas/ProductImage';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { extendGraphqlSchema } from './mutations';
+import { permissionsList } from './schemas/fields';
 
 const databaseURL =
   process.env.DATABASE_URL ||
@@ -67,6 +69,7 @@ export default withAuth(
       CartItem,
       Order,
       OrderItem,
+      Role,
     }),
     extendGraphqlSchema,
     ui: {
@@ -77,8 +80,8 @@ export default withAuth(
     },
     // TODO: Add session values here
     session: withItemData(statelessSessions(sessionConfig), {
-      // GraphQL query
-      User: 'id name email',
+      // GraphQL query - on every request
+      User: `id name email role { ${permissionsList.join(' ')} }`,
     }),
   })
 );

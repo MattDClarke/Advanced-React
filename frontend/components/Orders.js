@@ -65,12 +65,12 @@ export default function Orders() {
     <div>
       <Head>
         <title>
-          Your {_allOrdersMeta.count} order{_allOrdersMeta.count > 1 ? 's' : 1}
+          Your {_allOrdersMeta.count} order{_allOrdersMeta.count > 1 ? 's' : ''}
         </title>
       </Head>
       <h2>
         You have {_allOrdersMeta.count} order
-        {_allOrdersMeta.count > 1 ? 's' : 1}.{' '}
+        {_allOrdersMeta.count !== 1 ? 's' : ''}.{' '}
       </h2>
       <h3>Total spent: {formatMoney(calcTotal(allOrders))}</h3>
 

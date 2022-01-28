@@ -1,9 +1,14 @@
 import { integer, relationship, select, text } from '@keystone-next/fields';
 import { list } from '@keystone-next/keystone/schema';
+import { isSignedIn, rules } from '../access';
 
 export const Product = list({
-  // TODO:
-  // access:
+  access: {
+    create: isSignedIn,
+    read: rules.canReadProducts,
+    update: rules.canManageProducts,
+    delete: rules.canManageProducts,
+  },
   fields: {
     name: text({
       isRequired: true,
@@ -35,6 +40,14 @@ export const Product = list({
       },
     }),
     price: integer(),
-    // TODO: Photo
+    // when product created - make relationship to user.products
+    user: relationship({
+      ref: 'User.products',
+      // when product is created - do programatically based on users session
+      // currently signed in user
+      defaultValue: ({ context }) => ({
+        connect: { id: context.session.itemId },
+      }),
+    }),
   },
 });
