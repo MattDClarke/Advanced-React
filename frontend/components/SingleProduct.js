@@ -18,7 +18,7 @@ const ProductStyles = styled.div`
   }
 `;
 
-const SINGLE_ITEM_QUERY = gql`
+export const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
     Product(where: { id: $id }) {
       name
@@ -47,7 +47,7 @@ export default function SingleProduct({ id }) {
   const { Product } = data;
   // console.log(Product);
   return (
-    <ProductStyles>
+    <ProductStyles data-testid="singleProduct">
       <Head>
         <title>Sick Fits | {Product.name}</title>
       </Head>
