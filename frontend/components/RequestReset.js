@@ -3,9 +3,8 @@ import gql from 'graphql-tag';
 import useForm from '../lib/useForm';
 import DisplayError from './ErrorMessage';
 import Form from './styles/Form';
-import { CURRENT_USER_QUERY } from './User';
 
-const REQUEST_RESET_MUTATION = gql`
+export const REQUEST_RESET_MUTATION = gql`
   mutation REQUEST_RESET_MUTATION($email: String!) {
     # part of Keystone - how to tell Keystone that u want a pw reset link
     sendUserPasswordResetLink(email: $email) {

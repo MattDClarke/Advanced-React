@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateProduct /> renders and matches snapeshot 1`] = `
+<div>
+  <form
+    class="Form-sc-1xszr8q-0 hVEEdl"
+  >
+    <fieldset
+      aria-busy="false"
+    >
+      <label
+        for="image"
+      >
+        Image
+        <input
+          id="image"
+          name="image"
+          required=""
+          type="file"
+        />
+      </label>
+      <label
+        for="name"
+      >
+        Name
+        <input
+          id="name"
+          name="name"
+          placeholder="name"
+          type="text"
+          value=""
+        />
+      </label>
+      <label
+        for="price"
+      >
+        Price
+        <input
+          id="price"
+          name="price"
+          placeholder="price"
+          type="number"
+          value="0"
+        />
+      </label>
+      <label
+        for="description"
+      >
+        description
+        <textarea
+          id="price"
+          name="description"
+          placeholder="description"
+        />
+      </label>
+      <button
+        type="submit"
+      >
+        + Add Product
+      </button>
+    </fieldset>
+  </form>
+</div>
+`;
+
+exports[`<CreateProduct /> renders and matches snapshot 1`] = `
+<div>
+  <form
+    class="Form-sc-1xszr8q-0 hVEEdl"
+  >
+    <fieldset
+      aria-busy="false"
+    >
+      <label
+        for="image"
+      >
+        Image
+        <input
+          id="image"
+          name="image"
+          required=""
+          type="file"
+        />
+      </label>
+      <label
+        for="name"
+      >
+        Name
+        <input
+          id="name"
+          name="name"
+          placeholder="name"
+          type="text"
+          value=""
+        />
+      </label>
+      <label
+        for="price"
+      >
+        Price
+        <input
+          id="price"
+          name="price"
+          placeholder="price"
+          type="number"
+          value="0"
+        />
+      </label>
+      <label
+        for="description"
+      >
+        description
+        <textarea
+          id="price"
+          name="description"
+          placeholder="description"
+        />
+      </label>
+      <button
+        type="submit"
+      >
+        + Add Product
+      </button>
+    </fieldset>
+  </form>
+</div>
+`;

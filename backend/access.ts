@@ -1,12 +1,13 @@
 import { permissionsList } from './schemas/fields';
 import { ListAccessArgs } from './types';
 
-// At its simplest - access control is eith a yes or no value depending on the user's session
+// At its simplest - access control is either a yes or no value depending on the user's session
 
 // has access to Keystone context
 // yes or no
 export function isSignedIn({ session }: ListAccessArgs) {
   // !!undefined = false. coerce falsy and truthy to boolean
+  console.log(session);
   return !!session;
 }
 
@@ -15,6 +16,7 @@ const generatedPermissions = Object.fromEntries(
   permissionsList.map((permission) => [
     permission,
     function ({ session }: ListAccessArgs) {
+      // need coerce - may have no role (user that is not Admin or Editor)
       return !!session?.data.role?.[permission];
     },
   ])
@@ -34,12 +36,13 @@ export const rules = {
     if (!isSignedIn({ session })) {
       return false;
     }
-    // 1. do they the permission of canManageProducts (Admin)
+    // 1. do they have the permission - canManageProducts? (Admin)
     if (permissions.canManageProducts({ session })) {
       return true;
     }
     // 2. if not, do they own this item?
     // where filter (GraphQL where)
+    // itemId is the user ID
     return { user: { id: session.itemId } };
   },
   canOrder({ session }: ListAccessArgs) {

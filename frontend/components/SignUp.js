@@ -3,9 +3,8 @@ import gql from 'graphql-tag';
 import useForm from '../lib/useForm';
 import DisplayError from './ErrorMessage';
 import Form from './styles/Form';
-import { CURRENT_USER_QUERY } from './User';
 
-const SIGNUP_MUTATION = gql`
+export const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION(
     $email: String!
     $name: String!
@@ -56,12 +55,9 @@ export default function SignUp() {
       <DisplayError error={error} />
       <fieldset>
         {data?.createUser && (
-          <p>
-            Signed up with {data.createUser.email} - Please go ahead and sign
-            in!
-          </p>
+          <p>Signed up with {data.createUser.email} - You can now sign in!</p>
         )}
-        <label htmlFor="email">
+        <label htmlFor="name">
           Name
           <input
             id="name"
